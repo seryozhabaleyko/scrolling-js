@@ -19,4 +19,4 @@ function progressScroll() {
     'scrollMaxY' in window ? maxY = window.scrollMaxY : maxY = document.documentElement.scrollHeight - document.documentElement.clientHeight
     percent = window.scrollY / maxY * 100
     progress.setAttribute('style', `width: ${percent}%`)
-}
+} 
