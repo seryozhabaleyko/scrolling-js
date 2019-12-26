@@ -4,6 +4,7 @@ const scrollToButton = document.getElementById('top')
 
 window.addEventListener('scroll', () => {
     progressScroll()
+    // window.pageYOffset
     window.scrollY > 150 ? scrollToButton.style.visibility = 'visible' : scrollToButton.style.visibility = 'hidden'
 })
 
