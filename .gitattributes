@@ -1,4 +1,2 @@
 *.* linguist-language=JavaScript
 *.* linguist-vendored=JavaScript
-
-*.js linguist-vendored=true
