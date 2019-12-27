@@ -1,10 +1,7 @@
 const progress = document.getElementById("progress__bar")
+const scrollMaxY = window.scrollMaxY || document.documentElement.scrollHeight - document.documentElement.clientHeight
 
-export function progressScroll(scrollMaxY) {
-    const supportPageOffset = window.pageYOffset !== undefined
-    const isCSS1Compat = ((document.compatMode || "") === "CSS1Compat")
-    const currentScrollY = supportPageOffset ? window.pageYOffset : isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop
-    const percent = (currentScrollY / scrollMaxY) * 100
-    // progress.style.width = `${percent}%`
+export function progressScroll(scrollY) {
+    const percent = (scrollY / scrollMaxY) * 100
     progress.setAttribute('style', `width: ${percent}%`)
 }
