@@ -1,15 +1,15 @@
 import { progressScroll } from './progress.js'
-
-const scrollToButton = document.getElementById('top')
+import { buttonScrollTo, topScroll } from './scrollTo.js'
 
 window.addEventListener('scroll', () => {
-    const maxLengthScrollY = window.scrollMaxY || document.documentElement.scrollHeight - document.documentElement.clientHeight
-    // 'scrollMaxY' in window ? maxLengthScrollY = window.scrollMaxY : maxLengthScrollY = document.documentElement.scrollHeight - document.documentElement.clientHeight
-    progressScroll(maxLengthScrollY)
-    maxLengthScrollY > 150 ? scrollToButton.style.visibility = 'visible' : scrollToButton.style.visibility = 'hidden'
+    const supportPageOffset = window.pageYOffset !== undefined
+    const isCSS1Compat = ((document.compatMode || "") === "CSS1Compat")
+    const scrollY = supportPageOffset ? window.pageYOffset : isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop
+    progressScroll(scrollY)
+    topScroll(scrollY)
 })
 
-scrollToButton.addEventListener('click', () => {
+buttonScrollTo.addEventListener('click', () => {
     window.scrollTo({
         top: 0,
         left: 0,
